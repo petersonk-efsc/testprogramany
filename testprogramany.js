@@ -58,8 +58,8 @@ function round100th(n) {
 }
 
 function checkIt(sectionNum) {
-	startTest = document.getElementById("section" + sectionNum).dataset.starttest;
-	endTest = document.getElementById("section" + sectionNum).dataset.endtest;
+	startTest = parseInt(document.getElementById("section" + sectionNum).dataset.starttest);
+	endTest = parseInt(document.getElementById("section" + sectionNum).dataset.endtest);
 	var genOutput = "";
 	if (document.getElementById("btn" + startTest + "_section" + sectionNum).dataset.ttype == "source") {
 		genOutput = document.getElementById("section" + sectionNum + "_code").value;
@@ -106,7 +106,6 @@ function checkIt(sectionNum) {
 			document.getElementById(btnName).innerHTML = currName + "-> " + matchedText + " = " + testPercent + "%"
 		} else if (document.getElementById("btn" + i + "_section" + sectionNum).dataset.ttype == "source") {
 			var regex = document.getElementById("btn" + i + "_section" + sectionNum).dataset.regex;
-console.log(regex);
 			regex=new RegExp(regex.trim());
 		
 			var regexMatched = genOutput.search(regex);
