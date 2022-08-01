@@ -339,8 +339,8 @@ function readSetupFile() {
 		document.getElementById("summary").innerHTML = sumDivText;
 		for (var i = 0; i < numSamples; i++) {
 			sampleChildren = document.getElementById("section" + i).childNodes;
-			startTest = document.getElementById("section" + i).dataset.starttest;
-			endTest = document.getElementById("section" + i).dataset.endtest;	
+			startTest = parseInt(document.getElementById("section" + i).dataset.starttest);
+			endTest = parseInt(document.getElementById("section" + i).dataset.endtest);	
 			
 			for (var j = startTest; j < endTest; j++) {
 				if (document.getElementById("btn" + j + "_section" + i).dataset.ttype == "full") {
