@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- ********************************************************* -->
+		<!-- Mergely -->
+		<!-- Requires jQuery -->
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>		
+		
+		<!-- Requires CodeMirror -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/addon/search/searchcursor.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.css" />
+
+		<!-- Requires Mergely -->
+		<script type="text/javascript" src="lib/mergely.js"></script>
+		<link type="text/css" rel="stylesheet" href="lib/mergely.css" />
+
+		<link type="text/css" rel="stylesheet" href="testprogramany.css" />
+		<script type="text/javascript" src="collapsible.js"></script>
+		<link type="text/css" rel="stylesheet" href="collapsible.css" />
+		<script type="text/javascript" src="testprogramany2.js"></script>
+	</head>
+	<body style="width: 100%; margin: 0;">
+		<div>
+			<h1>Test Program (Anywhere version)</h1>
+			<ul>
+				<li>Step 1 - Upload corresponding SetupTest.xml file: <input type="file" onchange="readSetupFile();" id="fileResults"></li>
+				<li>Step 2 - Follow the directions in each section to complete each of the following tests:
+					<div id="summary" style="border:3px solid black">Score: TBD
+					</div>
+				</li>
+				<li>Step 3 - Submit your completed assignment to Canvas</li>
+			</ul>				
+		</div>
+		<div id="results">
+		</div>
+	</body>
+</html>
