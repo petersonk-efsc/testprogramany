@@ -11,8 +11,8 @@
  * Calculates the similarity (a number within 0 and 1) between two strings.
  */
 function similarity (s1, s2) {
-	var ns1 = s1; //.replaceAll('\r\n', '\n');
-	var ns2 = s2; //.replaceAll('\r\n', '\n');
+	var ns1 = s1.replaceAll('\r\n', '\n');
+	var ns2 = s2.replaceAll('\r\n', '\n');
 	var longer = ns1;
 	var shorter = ns2;
 	if (ns1.length < ns2.length) {
@@ -55,14 +55,6 @@ function editDistance(s1, s2) {
 
 function round100th(n) {
 	return Math.round(n * 100) / 100;
-}
-
-function cleanString(s, removeOpenNewLine) {
-	var cleaned = s.replaceAll('\r\n', '\n').replaceAll('\r', '\n'); //.replace(/[^\x00-\x7F]/g, '');
-	if (removeOpenNewLine && cleaned[0] == '\n') {
-		cleaned = cleaned.substr(1);
-	}
-	return cleaned;
 }
 
 function checkIt(sectionNum) {
@@ -212,10 +204,10 @@ function readSetupFile() {
 			for (var j = 0; j < sampleNodes.length; j++) {
 				numSamples++;
 				var inText = sampleNodes[j].getElementsByTagName("userinput")[0].childNodes[0].nodeValue;
-				inText = cleanString(inText, true); //inText.substr(2, inText.length-2);
+				inText = inText.substr(2, inText.length-2);
 				
 				var fullOutput = sampleNodes[j].getElementsByTagName("fulloutput")[0].childNodes[0].nodeValue;
-				fullOutput = cleanString(fullOutput, true); //fullOutput.substr(2, fullOutput.length-2);
+				fullOutput = fullOutput.substr(2, fullOutput.length-2);
 				
 				testNodes = sampleNodes[j].children;
 				startTest = numTests;
@@ -353,10 +345,9 @@ function readSetupFile() {
 			for (var j = startTest; j < endTest; j++) {
 				if (document.getElementById("btn" + j + "_section" + i).dataset.ttype == "full") {
 					var genOutput = document.getElementById("section" + i + "_out1").value;
-					genOutput = cleanString(genOutput, false);
 					
 					var expOutput = sampleNodes[i].getElementsByTagName("fulloutput")[0].childNodes[0].nodeValue;
-					expOutput = cleanString(expOutput, true); //expOutput.substr(2, expOutput.length-2);							
+					expOutput = expOutput.substr(2, expOutput.length-2);							
 					var compName = "#compare" + j;
 					$(compName).mergely({
 						width: 'auto',
